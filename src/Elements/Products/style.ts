@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import type { Props } from ".";
 
 export const ProductContainer = styled.div`
     width: 473px;
@@ -9,9 +10,9 @@ export const ProductContainer = styled.div`
 
 export const ImageInfos = styled.div`
     display: flex;
+    position: relative;
 
-    img{ 
-        position: relative;
+    img{
         width: 472px;
         height: 217px;
         -webkit-box-shadow: 13px 8px 43px -8px #000000; 
@@ -20,11 +21,11 @@ export const ImageInfos = styled.div`
     }
 `
 
-export const TagContainer = styled.div`
+export const TagContainer = styled.div<Omit<Props,'Tags'>`
     position: absolute;
     display: flex;
     gap: 40px;
-    left: 10%;
+    left: ${(props) => props.Len > 1 ? '40px' : '50px' };
 `
 
 export const FoodInfos = styled.div`

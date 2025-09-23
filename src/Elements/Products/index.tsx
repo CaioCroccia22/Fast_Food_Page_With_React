@@ -1,14 +1,23 @@
 import { ImageInfos, ProductContainer, TagContainer,FoodInfos, Button, ContainerInfos } from "./style"
 import food from '../../assets/img/food.png'
 import star from '../../assets/img/estrela.png'
+import { Tag } from "../Tag/Index"
 
-export const Product = () => (
+export type Props = {
+    Tags: string[]
+    Len: number
+}
+
+export const Product = ({Tags, Len}: Props) => (
     <ProductContainer>
         <ImageInfos>
             <img src={food} />
-            <TagContainer>
-                <p>Destaque da Semana</p>
-                <p>Japonesa</p>
+            <TagContainer Len={Tags.length}>
+                {/* <Tag word={"Destaque da Semana"}></Tag>
+                <Tag word={"Japonesa"}></Tag> */}
+                {Tags.map((tag, index)  => (
+                    <Tag key={index} word={tag}></Tag>
+                ))}
             </TagContainer>
         </ImageInfos>
         <FoodInfos>

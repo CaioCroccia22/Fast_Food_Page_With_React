@@ -3,9 +3,9 @@ import { Container } from './style'
 
 export const ProductList = () => (
     <Container>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
-        <Product></Product>
+        <Product Tags={["Destaque", "Japonesa"]}></Product>
+        <Product Tags={["Japonesa"]}></Product>
+        <Product Tags={["Japonesa"]}></Product>
+        <Product Tags={["Japonesa"]}></Product>
     </Container>
 )
