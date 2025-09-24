@@ -48,6 +48,8 @@ export const Button = styled.button`
     font-size: 14px;
     margin-top: 14px;
     margin-left: 3px;
+    cursor: pointer;
+    
 `
 
 export const ContainerInfos = styled.div`

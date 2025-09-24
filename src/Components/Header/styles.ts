@@ -24,3 +24,17 @@ export const Text = styled.h1`
     text-align: center;
 
 `
+
+export const BuyText = styled.h3`
+    font-weight: 900px;
+    Color: #E66767;
+    cursor: pointer;
+`
+
+export const TextContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    align-items: center;
+`

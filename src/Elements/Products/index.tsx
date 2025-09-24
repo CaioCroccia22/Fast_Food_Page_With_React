@@ -2,19 +2,18 @@ import { ImageInfos, ProductContainer, TagContainer,FoodInfos, Button, Container
 import food from '../../assets/img/food.png'
 import star from '../../assets/img/estrela.png'
 import { Tag } from "../Tag/Index"
+import { Link } from "react-router-dom"
 
 export type Props = {
     Tags: string[]
-    Len: number
+    Len?: number
 }
 
-export const Product = ({Tags, Len}: Props) => (
+export const Product = ({Tags}: Props) => (
     <ProductContainer>
         <ImageInfos>
             <img src={food} />
             <TagContainer Len={Tags.length}>
-                {/* <Tag word={"Destaque da Semana"}></Tag>
-                <Tag word={"Japonesa"}></Tag> */}
                 {Tags.map((tag, index)  => (
                     <Tag key={index} word={tag}></Tag>
                 ))}
@@ -31,7 +30,11 @@ export const Product = ({Tags, Len}: Props) => (
                     Entrega rápida, embalagens cuidadosas e qualidade garantida.
                     Experimente o Japão sem sair do lar com nosso delivery!
                 </p>
-            <Button>Saiba Mais</Button>
+            <Link to="/Profile">
+                <Button>
+                    Saiba Mais
+                </Button>
+            </Link>
         </FoodInfos>
     </ProductContainer>
 )

@@ -4,7 +4,7 @@ import { ProductList } from "../ProductList"
 
 export const Home = () => (
     <>
-        <Header />
+        <Header Page="Home"/>
         <ProductList></ProductList>
         <Bottom></Bottom>
     </>
