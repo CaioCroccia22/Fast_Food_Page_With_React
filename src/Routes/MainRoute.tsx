@@ -1,7 +1,7 @@
 import { Route, Routes  } from "react-router-dom";
 
-import { Home } from "../Components/Home";
-import Profile from "../Components/Profile/Index";
+import { Home } from "../Page/Home";
+import Profile from "../Page/Profile/Index";
 
 
 const MainRoutes = () => {

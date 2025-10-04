@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
-import { HeaderContainer, Text, TextContainer, BuyText } from './styles'
+import { HeaderContainer, Title, TextContainer, BuyText } from './styles'
 
 export type Props = {
     Page: 'Home' | 'Profile'
@@ -9,11 +9,11 @@ export type Props = {
 export const Header = ({Page}: Props) => (
        <>
             {Page === 'Home' ? 
-            (<HeaderContainer>
+            (<HeaderContainer Page={Page}>
                 <img src={logo} />
-                <Text>Viva experiências gastronômicas no conforto da sua casa</Text>
+                <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
             </HeaderContainer> ) : ( 
-            <HeaderContainer>
+            <HeaderContainer Page={Page}>
                 <TextContainer>
                     <Link to="/"><BuyText>Restaurantes</BuyText></Link>
                     <img src={logo} />

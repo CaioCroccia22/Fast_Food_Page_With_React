@@ -7,5 +7,7 @@ export const ProductList = () => (
         <Product Tags={["Japonesa"]}></Product>
         <Product Tags={["Japonesa"]}></Product>
         <Product Tags={["Japonesa"]}></Product>
+        <Product Tags={["Japonesa"]}></Product>
+        <Product Tags={["Japonesa"]}></Product>
     </Container>
 )

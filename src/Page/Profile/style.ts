@@ -7,7 +7,7 @@ export const ImageContainer = styled.div`
     background-image: url(${FoodPresentation});
     background-repeat: no-repeat;
     background-position: center;
-    height: 40vh;
+    height: 280px;
     margin-bottom: 20px;
 `
 

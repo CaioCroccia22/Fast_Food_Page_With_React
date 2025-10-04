@@ -4,10 +4,12 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-    max-width: 100%;
-    // background-color: red;
+    width: 960px;
+    height: 1290px;
+    margin: 0 auto;
     margin-top: 40px;
-    gap: 20px;
-    margin-bottom: 40px;
+    row-gap: 0px;
+    column-gap: 45px;
+    margin-bottom: 120px;
 
 `

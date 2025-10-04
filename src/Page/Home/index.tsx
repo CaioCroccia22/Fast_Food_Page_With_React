@@ -1,6 +1,6 @@
-import Bottom from "../Bottom"
-import Header from "../Header"
-import { ProductList } from "../ProductList"
+import Bottom from "../../Components/Bottom"
+import Header from "../../Components/Header"
+import { ProductList } from "../../Components/ProductList"
 
 export const Home = () => (
     <>

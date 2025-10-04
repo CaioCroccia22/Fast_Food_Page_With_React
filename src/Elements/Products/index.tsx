@@ -1,4 +1,4 @@
-import { ImageInfos, ProductContainer, TagContainer,FoodInfos, Button, ContainerInfos } from "./style"
+import { ImageInfos, ProductContainer, ContainerText, SubTitle, ContainerRate ,TagContainer,FoodInfos, Button, ContainerInfos } from "./style"
 import food from '../../assets/img/food.png'
 import star from '../../assets/img/estrela.png'
 import { Tag } from "../Tag/Index"
@@ -21,15 +21,17 @@ export const Product = ({Tags}: Props) => (
         </ImageInfos>
         <FoodInfos>
             <ContainerInfos>
-                <h3>Hioki Sushi</h3>
-                <div><span>4.9</span><img src={star} alt="nota" /></div>
+                <SubTitle>Hioki Sushi</SubTitle>
+                <ContainerRate><span>4.9</span><img src={star} alt="nota" /></ContainerRate>
             </ContainerInfos>
+            <ContainerText>
                 <p>
                     Peça já o melhor da culinária japonesa no conforto da sua casa! 
                     Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis.
                     Entrega rápida, embalagens cuidadosas e qualidade garantida.
                     Experimente o Japão sem sair do lar com nosso delivery!
                 </p>
+            </ContainerText>
             <Link to="/Profile">
                 <Button>
                     Saiba Mais

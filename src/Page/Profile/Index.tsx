@@ -1,13 +1,12 @@
-import Bottom from "../Bottom"
-import Header from "../Header"
+import Bottom from "../../Components/Bottom"
+import Header from "../../Components/Header"
 import { ProfileProducts } from "../../Elements/Profile_Products/Index"
 import { ImageContainer, ProfileProductsList } from "./style"
 
 export const Profile = () => (
     <>
         <Header Page="Profile"/>
-            <ImageContainer>
-            </ImageContainer>
+            <ImageContainer />
             <ProfileProductsList>
                 <ProfileProducts></ProfileProducts>
                 <ProfileProducts></ProfileProducts>

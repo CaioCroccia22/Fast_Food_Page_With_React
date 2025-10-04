@@ -4,8 +4,8 @@ import type { Props } from ".";
 type TagContainerProps = Omit<Props, "Tags"> & {Len: number}
 
 export const ProductContainer = styled.div`
-    width: 473px;
-    height: 450px;
+    width: 472px;
+    height: 398px;
     display: flex;
     flex-direction: column;
 `
@@ -31,10 +31,41 @@ export const TagContainer = styled.div<TagContainerProps>`
 `
 
 export const FoodInfos = styled.div`
+    display: flex;
+    flex-direction: column;
     border: #E66767 1px solid;
     color: #E66767;
-    height: 230px;
+    height: 181px;
     padding: 10px;
+    gap: 14px;
+`
+export const ContainerInfos = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90%;
+    height: 21px;
+
+`
+
+export const SubTitle = styled.h3`
+    Font-size: 18px;
+`
+
+export const ContainerRate = styled.div`
+    display: flex;
+    width: 55px;
+    align-items: flex-end;
+    justify-content: center;
+`
+
+export const ContainerText = styled.div`
+    height: 88px;
+
+    p {
+        font-size: 14px;
+        color: #E66767;
+    }
 `
 
 export const Button = styled.button`
@@ -46,25 +77,7 @@ export const Button = styled.button`
     border: none;
     border-radius: 5px;
     font-size: 14px;
-    margin-top: 14px;
     margin-left: 3px;
     cursor: pointer;
     
-`
-
-export const ContainerInfos = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    align-items: center;
-    max-width: 90%;
-    padding: 10px;
-
-    
-    p {
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 22px;
-        color: #E66767;
-    }
 `
