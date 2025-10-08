@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const ImageContainer = styled.div<{ imageUrl: string }>`
+export const ImageContainer = styled.div`
   position: relative;
   width: 100%;
   height: 280px;
