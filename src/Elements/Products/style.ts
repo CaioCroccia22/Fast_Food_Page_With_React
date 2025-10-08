@@ -43,8 +43,14 @@ export const ContainerInfos = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 90%;
+    max-width: 100%;
     height: 21px;
+
+    span {
+        font-size: 18px;
+        font-weight: 700;
+        margin-right: 8px;
+    }
 
 `
 
@@ -63,6 +69,8 @@ export const ContainerText = styled.div`
     height: 88px;
 
     p {
+        font-family: 'Roboto Variable';
+        font-weight: 400;
         font-size: 14px;
         color: #E66767;
     }

@@ -16,8 +16,7 @@ export const HeaderContainer = styled.div<Props>`
 `
 
 export const Title = styled.h1`
-    font-family: Roboto;
-    font-weight: 900px;
+    font-weight: 900;
     line-height: 100%;
     color: #E66767;
     size: 36px;
