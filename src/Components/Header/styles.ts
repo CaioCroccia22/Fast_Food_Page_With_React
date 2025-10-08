@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div<Props>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 140px;
 `
 
 export const Title = styled.h1`
