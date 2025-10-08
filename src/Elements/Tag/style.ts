@@ -11,7 +11,7 @@ export const TagContainer = styled.div`
     justify-content: center;                                                                                                                               
     align-items: center;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
     display: flex;
 
     span {

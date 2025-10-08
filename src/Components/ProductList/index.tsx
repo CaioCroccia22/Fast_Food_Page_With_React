@@ -3,7 +3,7 @@ import { Container } from './style'
 
 export const ProductList = () => (
     <Container>
-        <Product Tags={["Destaque", "Japonesa"]}></Product>
+        <Product Tags={["Destaque da semana", "Japonesa"]}></Product>
         <Product Tags={["Japonesa"]}></Product>
         <Product Tags={["Japonesa"]}></Product>
         <Product Tags={["Japonesa"]}></Product>

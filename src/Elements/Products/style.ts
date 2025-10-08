@@ -26,8 +26,8 @@ export const ImageInfos = styled.div`
 export const TagContainer = styled.div<TagContainerProps>`
     position: absolute;
     display: flex;
-    gap: 40px;
-    left: ${(props) => props.Len > 1 ? '190px' : '350px' };
+    gap: 10px;
+    left: ${(props) => props.Len > 1 ? '210px' : '335px' };
 `
 
 export const FoodInfos = styled.div`
