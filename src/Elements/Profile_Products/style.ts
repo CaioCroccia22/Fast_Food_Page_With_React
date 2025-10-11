@@ -16,7 +16,7 @@ export const Container = styled.div`
     }
 `
 
-export const Title = styled.h3`
+export const TitleProduct = styled.h3`
     color:  #FFEBD9;
     font-weight: 900px;
 `
@@ -41,4 +41,29 @@ export const BuyButton = styled.button`
     color: #E66767;
     border: none;
     padding: 6px;
+    cursor: pointer;
+`
+
+export const ContainerImg = styled.div`
+    width: 1024px;
+    height: 344px;
+    background-color: #E66767;
+    object-fit: cover;
+    display: flex;
+    align-itens: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+
+    &::after{
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: red;
+        position: absolute;
+        opacity: 0.5;
+    }
 `

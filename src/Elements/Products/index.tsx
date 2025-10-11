@@ -1,8 +1,8 @@
 import { ImageInfos, ProductContainer, ContainerText, SubTitle, ContainerRate ,TagContainer,FoodInfos, Button, ContainerInfos } from "./style"
-import food from '../../assets/img/food.png'
 import star from '../../assets/img/estrela.png'
 import { Tag } from "../Tag/Index"
 import { Link } from "react-router-dom"
+import food from '../../assets/img/food.png'
 
 export type Props = {
     Tags: string[]
