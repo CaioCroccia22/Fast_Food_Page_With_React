@@ -7,63 +7,89 @@ export const Container = styled.div`
     height: 338px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    img {
+    `
+    
+export const ContainerImage = styled.div`
         width: 304px;
         height: 167px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    `
+
+export const ContainerTitle = styled.div`
+    height: 19px;
+    margin-left: 5px;
+    margin-bottom: 13px;
+
+    h3 {
+        color:  #FFEBD9;
+        font-size: 16px;
+        left: 0;
     }
 `
 
-export const TitleProduct = styled.h3`
-    color:  #FFEBD9;
-    font-weight: 900px;
-`
-
 export const ContainerText = styled.div`
-    margin-left: 10px;
-    margin-top: 10px;
-    width: 100%; 
+    width: 80%; 
+    margin-left: 5px;
+    height: 88px;
+    margin-bottom: 13px;
 
     p{
         color:  #FFEBD9;
         font-weight: 400px;
-        line-height: 22px;
         font-size: 14px;
-        margin-bottom: 5px;
+        line-height: 22px;
     }
 `
+
+export const ContainerButton = styled.div`
+    width: 304px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin: 0 auto;
+`
+
 
 export const BuyButton = styled.button`
-    width: 304px;
     background-color: #FFEBD9;
+    font-size: 14px;
     color: #E66767;
     border: none;
-    padding: 6px;
     cursor: pointer;
+    width: 100%
+    
 `
 
-export const ContainerImg = styled.div`
-    width: 1024px;
-    height: 344px;
-    background-color: #E66767;
-    object-fit: cover;
-    display: flex;
-    align-itens: center;
-    justify-content: center;
-    position: absolute;
-    z-index: 2;
+// export const ContainerImg = styled.div`
+//     width: 1024px;
+//     height: 344px;
+//     background-color: #E66767;
+//     object-fit: cover;
+//     display: flex;
+//     align-itens: center;
+//     justify-content: center;
+//     position: absolute;
+//     z-index: 2;
 
-    &::after{
-        content: '';
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-color: red;
-        position: absolute;
-        opacity: 0.5;
-    }
-`
+//     &::after{
+//         content: '';
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         z-index: 1;
+//         background-color: red;
+//         position: absolute;
+//         opacity: 0.5;
+//     }
+// `

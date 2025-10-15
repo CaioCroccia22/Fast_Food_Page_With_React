@@ -1,4 +1,4 @@
-type Menu = [
+export type Menu = [
     id: number,
     picture: string,
     name: string,
@@ -9,9 +9,9 @@ type Menu = [
 export default class MenuCategories {
     id: number;
     title: string;
-    highlight: false;
+    highlight: boolean;
     type: string;
-    rate: GLfloat;
+    rate: Float16Array;
     text: string;
     banner: string;
     menu: Menu[];
@@ -19,9 +19,9 @@ export default class MenuCategories {
     constructor(
     id: number,
     title: string,
-    highlight: false,
+    highlight: boolean,
     type: string,
-    rate: GLfloat,
+    rate: Float16Array,
     text: string,
     banner: string,
     menu: Menu[]){

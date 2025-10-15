@@ -55,11 +55,98 @@ export const ContainerText = styled.div`
   }
 `;
 export const ProfileProductsList = styled.div`
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
+    align-itens: center;
     width: 1024px;
-    margin-bottom: 20px;
-    gap: 20px;
+    height: 708px;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    justify-items: center;
+    margin: 0 auto;
+`
+
+export const ModalContainer = styled.div`
+    display: flex;
+    align-items: center;
+    width: 1004px;
+    height: 344px;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-color: #E66767;
+    padding: 32px;
+    
+
+    img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      display: flex;
+      
+    }
+`
+
+export const CloseIcon = styled.div`
+
+  top: 0;
+  right: 0;
+  margin: 8px;
+  position: absolute;
+
+  button {
+    cursor: pointer;
+     background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  img {
+
+    width: 16px;
+    height: 16px;
+  }
+`
+
+export const ModalBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  width: 656px;
+  margin-left: 32px;
+`
+
+export const TitleModal = styled.h3`
+    font-size: 18px;
+    font-weight: 900px;
+    color: #fff;
+    margin-bottom: 16px;
+`
+
+export const TextModal = styled.p`
+  font-size: 14px;
+  font-weight: 400px;
+  max-width: 624px;
+  height: 176px;
+  margin-bottom: 10px;
+  color: #fff;
+`
+
+export const DescriptionModal = styled.p`
+  font-size: 14px;
+  font-weight: 400px;
+  width: 656px;
+  height: 176px;
+  margin-bottom: 16px;
+  color: #fff;
+
+`
+
+export const ButtonModal = styled.button`
+  width: 218px;
+  height: 24px;
+  padding: 6px;
+  background-color: #FFEBD9;
+  color: #E66767;
+  border: none;
+  align-items: center;
+  cursor: pointer;
 `

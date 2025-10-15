@@ -36,6 +36,6 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 70%;
+    width: 1024px;
     align-items: center;
 `
