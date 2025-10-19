@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import type { Props } from ".";
 
-type TagContainerProps = Omit<Props, "Tags"> & {Len: number}
+type TagContainerProps = Omit<Props, "Tags" | "Restaurant"> & {Len: number}
 
 export const ProductContainer = styled.div`
     width: 472px;

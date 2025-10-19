@@ -1,7 +1,7 @@
 import { Container, ContainerImage, ContainerText, BuyButton, ContainerButton, ContainerTitle} from './style'
 
 export type Props = {
-    getModalState: boolean
+    // getModalState: boolean
     ButtonClickEvent: () => void
     Text: string
     Image: string
@@ -14,13 +14,15 @@ export const ProfileProducts = ({ButtonClickEvent, Text, Image, Alt, Title}: Pro
     return (
         <Container>
             <ContainerImage>
-                <img src={`${Image}`} alt={`${Alt}`}/>
+                <img src={Image} alt={Alt}/>
             </ContainerImage>
             <ContainerTitle>
                 <h3>{Title}</h3>
             </ContainerTitle>
             <ContainerText>
-                <p>{Text}</p>
+                <p>
+                    {Text.length > 153 ? (`${Text.slice(0, 150)}...`): (Text)}
+                </p>
             </ContainerText>
             <ContainerButton>
                 <BuyButton onClick={ButtonClickEvent}>Adicionar ao Carrinho</BuyButton>

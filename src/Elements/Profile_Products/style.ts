@@ -13,20 +13,19 @@ export const Container = styled.div`
 export const ContainerImage = styled.div`
         width: 304px;
         height: 167px;
-        margin: 0 auto;
+        margin: 8px;
         display: flex;
         align-items: center;
 
         img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 304px;
+            height: 167px;
         }
     `
 
 export const ContainerTitle = styled.div`
     height: 19px;
-    margin-left: 5px;
-    margin-bottom: 13px;
+    margin-left: 8px;
 
     h3 {
         color:  #FFEBD9;
@@ -36,10 +35,9 @@ export const ContainerTitle = styled.div`
 `
 
 export const ContainerText = styled.div`
-    width: 80%; 
-    margin-left: 5px;
+    width: 304px; 
     height: 88px;
-    margin-bottom: 13px;
+    margin: 8px;
 
     p{
         color:  #FFEBD9;
@@ -55,8 +53,7 @@ export const ContainerButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
-    margin: 0 auto;
+    margin: 8px;
 `
 
 

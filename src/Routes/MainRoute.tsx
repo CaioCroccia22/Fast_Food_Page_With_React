@@ -5,10 +5,11 @@ import Profile from "../Page/Profile/Index";
 
 
 const MainRoutes = () => {
-    return (
+    
+return (
     <Routes>
         <Route  path="/" element={<Home />} />
-        <Route path="/Profile" element={<Profile/>} />
+        <Route path="/Profile/:restaurantId" element={<Profile/>} />
     </Routes>
     )
 }
