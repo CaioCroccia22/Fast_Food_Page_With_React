@@ -5,7 +5,7 @@ export interface MenuInterface {
     titulo: string,
     destacado: boolean,
     tipo: string,
-    avaliacao: Float16Array,
+    avaliacao: number,
     descricao: string,
     capa: string,
     cardapio: Menu[]

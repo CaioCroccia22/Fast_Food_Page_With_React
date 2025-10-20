@@ -5,7 +5,7 @@ import Header from "../../Components/Header"
 import { ProfileProducts } from "../../Elements/Profile_Products/Index"
 
 
-import { ImageContainer, ProfileProductsList, ContainerText, ModalContainer, ButtonModal, DescriptionModal, TextModal, TitleModal, ModalBody, CloseIcon } from "./style"
+import { ImageContainer, ProfileProductsList, ContainerText} from "./style"
 
 // import food from '../../assets/img/food.png'
 // import CloseIconImage from '../../assets/img/closeIcon.png'
@@ -60,11 +60,6 @@ export const Profile = () => {
             carregaDados()
             },
     [])
-
-    function CountArr(e){
-
-    }
-
 
     return(
     <>
