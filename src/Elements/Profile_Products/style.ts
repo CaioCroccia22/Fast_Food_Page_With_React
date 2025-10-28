@@ -7,7 +7,7 @@ export const Container = styled.div`
     height: 338px;
     display: flex;
     flex-direction: column;
-
+    
     `
     
 export const ContainerImage = styled.div`

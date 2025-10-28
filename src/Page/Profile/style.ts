@@ -54,14 +54,37 @@ export const ContainerText = styled.div`
     font-size: 32px;
   }
 `;
+
+// export const ContainerProducts = styled.div`
+//   background-color: yellow;
+//   width: 1024px;
+//   display: flex;
+//   justify-content: center;
+//   margin: 0 auto;
+// `
+
+
+// export const ProfileProductsList = styled.div`
+//     align-itens: center;
+//     width: 1024px;
+//     height: 708px;
+//     display: grid;
+//     grid-template-columns: 33.3333% 33.3333% 33.3333%;
+//     background-color: red;
+// `
+
+export const ContainerProducts = styled.div`
+  width: 1024px;
+  margin: 0 auto;
+  // background-color: yellow;
+`
+
 export const ProfileProductsList = styled.div`
-    align-itens: center;
-    width: 1024px;
-    height: 708px;
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
-    justify-items: center;
-    margin: 0 auto;
+  width: 1024px;
+  height: 708px;
+  display: grid;
+  grid-template-columns: repeat(3, 353px);
+  // background-color: red;
 `
 
 export const ModalContainer = styled.div`

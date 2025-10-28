@@ -5,7 +5,7 @@ import Header from "../../Components/Header"
 import { ProfileProducts } from "../../Elements/Profile_Products/Index"
 
 
-import { ImageContainer, ProfileProductsList, ContainerText} from "./style"
+import { ImageContainer, ProfileProductsList, ContainerText, ContainerProducts} from "./style"
 
 // import food from '../../assets/img/food.png'
 // import CloseIconImage from '../../assets/img/closeIcon.png'
@@ -72,6 +72,7 @@ export const Profile = () => {
                 <p>La Dolce Vita Trattoria</p>
             </ContainerText>
         </ImageContainer>
+        <ContainerProducts>
             <ProfileProductsList>
                 {restaurant?.cardapio
                     .slice(0, 6)
@@ -84,9 +85,10 @@ export const Profile = () => {
                     Image={menu.foto}
                     Alt={menu.nome}
                     />))
-         
+            
                 }
             </ProfileProductsList>
+        </ContainerProducts>
         <Bottom />
     </>
 ) 

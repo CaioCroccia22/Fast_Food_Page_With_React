@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div<Props>`
     background-size: cover;
     max-width: 100%;
     height: ${({ Page }) => Page === 'Home' ? '384px' : '186px'};
-    padding: 16px 8px;
+    // padding: 16px 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,4 +38,5 @@ export const TextContainer = styled.div`
     justify-content: space-between;
     width: 1024px;
     align-items: center;
+    // background-color: green;
 `
