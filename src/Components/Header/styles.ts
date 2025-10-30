@@ -13,6 +13,7 @@ export const HeaderContainer = styled.div<Props>`
     justify-content: center;
     align-items: center;
     gap: 140px;
+    
 `
 
 export const Title = styled.h1`
@@ -36,7 +37,7 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 1024px;
+    width: 1149px;
     align-items: center;
     // background-color: green;
 `
