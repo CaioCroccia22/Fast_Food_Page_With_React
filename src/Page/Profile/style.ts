@@ -72,10 +72,32 @@ export const ProfileProductsList = styled.div`
   height: 708px;
   display: grid;
   grid-template-columns: repeat(3, 352px);
-`
+  `
+  export const CloseIcon = styled.div`
+  
+    top: 0;
+    right: 0;
+    margin: 8px;
+    position: absolute;
+  
+    button {
+      cursor: pointer;
+       background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+  
+    img {
+  
+      width: 16px;
+      height: 16px;
+    }
+  `
+  
 
 export const ModalContainer = styled.div<Props>`
-    display: ${(props) => props.activeModal == true ? `flex` : `none`}flex;
+    display: ${(props) => props.activeModal == true ? `flex` : `none`};
     align-items: center;
     width: 1024px;
     height: 344px;
@@ -89,38 +111,9 @@ export const ModalContainer = styled.div<Props>`
       height: 280px;
       object-fit: cover;
       display: flex;
-      
+      margin: 32px;
+      margin-right: 0px;
     }
-`
-
-export const ModalTitle = styled.h1`
-    color: black;
-`
-
-export const ModalText = styled.p`
-  color: black;
-`
-
-export const CloseIcon = styled.div`
-
-  top: 0;
-  right: 0;
-  margin: 8px;
-  position: absolute;
-
-  button {
-    cursor: pointer;
-     background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  img {
-
-    width: 16px;
-    height: 16px;
-  }
 `
 
 export const ModalBody = styled.div`
@@ -128,26 +121,27 @@ export const ModalBody = styled.div`
   flex-direction: column;
   height: 280px;
   width: 656px;
-  margin-left: 32px;
+  margin: 32px 32px 32px 24px;
 `
 
-export const TitleModal = styled.h3`
+export const ModalTitle = styled.h3`
     font-size: 18px;
     font-weight: 900px;
     color: #fff;
     margin-bottom: 16px;
 `
 
-export const TextModal = styled.p`
+export const ModalText = styled.p`
   font-size: 14px;
   font-weight: 400px;
   max-width: 624px;
   height: 176px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  line-height: 22px;
   color: #fff;
 `
 
-export const DescriptionModal = styled.p`
+export const ModalDescription = styled.p`
   font-size: 14px;
   font-weight: 400px;
   width: 656px;
@@ -157,7 +151,7 @@ export const DescriptionModal = styled.p`
 
 `
 
-export const ButtonModal = styled.button`
+export const ModalButton = styled.button`
   width: 218px;
   height: 24px;
   padding: 6px;
@@ -165,5 +159,7 @@ export const ButtonModal = styled.button`
   color: #E66767;
   border: none;
   align-items: center;
+  // Profileily: 'Roboto Variable';
+  font-weight: 700;
   cursor: pointer;
 `

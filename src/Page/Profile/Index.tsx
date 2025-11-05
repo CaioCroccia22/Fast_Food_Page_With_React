@@ -15,7 +15,9 @@ import {
   ModalContainer, 
   ModalBody, 
   ModalTitle, 
-  ModalText
+  ModalText,
+  ModalDescription,
+  ModalButton
 } from "./style"
 
 
@@ -30,7 +32,7 @@ export const Profile = () => {
     const [modalFood, setModalFood]         = useState<number>(0)
     
     
-    const getFoodModel = restaurant?.cardapio.find(
+    const getFoodModal = restaurant?.cardapio.find(
         (menu) => menu.id === modalFood)
 
 
@@ -94,12 +96,14 @@ export const Profile = () => {
             </ContainerText>
         </ImageContainer>
         <ContainerProducts activeModal={modalState}>
-        {getFoodModel && modalState &&
+        {getFoodModal && modalState &&
             <ModalContainer activeModal={modalState}>
-                <img src={getFoodModel?.foto} alt={getFoodModel?.nome}/>
+                <img src={getFoodModal?.foto} alt={getFoodModal?.nome}/>
                 <ModalBody>
-                    <ModalTitle>{getFoodModel?.nome}</ModalTitle>
-                    <ModalText>{getFoodModel?.descricao}</ModalText>
+                    <ModalTitle>{getFoodModal?.nome}</ModalTitle>
+                    <ModalText>{getFoodModal?.descricao}</ModalText>
+                    <ModalDescription>{getFoodModal?.porcao}</ModalDescription>
+                    <ModalButton>Adicionar ao carrinho R$ - {getFoodModal?.preco}</ModalButton>
                 </ModalBody>
             </ModalContainer>}
         {returnProduct()}
