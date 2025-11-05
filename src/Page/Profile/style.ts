@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type Props = {
+  activeModal: boolean
+}
+
 
 export const ImageContainer = styled.div`
   position: relative;
@@ -55,47 +59,29 @@ export const ContainerText = styled.div`
   }
 `;
 
-// export const ContainerProducts = styled.div`
-//   background-color: yellow;
-//   width: 1024px;
-//   display: flex;
-//   justify-content: center;
-//   margin: 0 auto;
-// `
 
-
-// export const ProfileProductsList = styled.div`
-//     align-itens: center;
-//     width: 1024px;
-//     height: 708px;
-//     display: grid;
-//     grid-template-columns: 33.3333% 33.3333% 33.3333%;
-//     background-color: red;
-// `
-
-export const ContainerProducts = styled.div`
+export const ContainerProducts = styled.div<Props>`
   width: 1024px;
   margin: 0 auto;
-  // background-color: yellow;
+  position: ${(props) => props.activeModal == true ? `relative` : ``}
+
 `
 
 export const ProfileProductsList = styled.div`
   width: 1024px;
   height: 708px;
   display: grid;
-  grid-template-columns: repeat(3, 353px);
-  // background-color: red;
+  grid-template-columns: repeat(3, 352px);
 `
 
-export const ModalContainer = styled.div`
-    display: flex;
+export const ModalContainer = styled.div<Props>`
+    display: ${(props) => props.activeModal == true ? `flex` : `none`}flex;
     align-items: center;
-    width: 1004px;
+    width: 1024px;
     height: 344px;
     position: absolute;
     background-repeat: no-repeat;
     background-color: #E66767;
-    padding: 32px;
     
 
     img {
@@ -105,6 +91,14 @@ export const ModalContainer = styled.div`
       display: flex;
       
     }
+`
+
+export const ModalTitle = styled.h1`
+    color: black;
+`
+
+export const ModalText = styled.p`
+  color: black;
 `
 
 export const CloseIcon = styled.div`

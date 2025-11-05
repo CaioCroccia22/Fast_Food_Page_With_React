@@ -1,69 +1,90 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router"
 
 import Bottom from "../../Components/Bottom"
 import Header from "../../Components/Header"
 import { ProfileProducts } from "../../Elements/Profile_Products/Index"
-
-
-import { ImageContainer, ProfileProductsList, ContainerText, ContainerProducts} from "./style"
-
-// import food from '../../assets/img/food.png'
-// import CloseIconImage from '../../assets/img/closeIcon.png'
 import FoodPresentation from '../../assets/img/macarrao.png'
-import { useParams } from "react-router"
+
 import type { Restaurant } from "../../Models/Restaurant"
-
-
-
-
-
-export type menuType = {
-    
-    Image: [ Source: string, alt: string],
-    Title: string,
-    Text: string
-}
+import { 
+  ImageContainer, 
+  ProfileProductsList, 
+  ContainerText, 
+  ContainerProducts, 
+  ModalContainer, 
+  ModalBody, 
+  ModalTitle, 
+  ModalText
+} from "./style"
 
 
 
 export const Profile = () => {
     
-    const params = useParams();
+    const {restaurantId}                    = useParams();
+    
+    
+    const [restaurant, setRestaurant]       = useState<Restaurant | null>(null)
+    const [modalState, setModalState]       = useState(false)
+    const [modalFood, setModalFood]         = useState<number>(0)
+    
+    
+    const getFoodModel = restaurant?.cardapio.find(
+        (menu) => menu.id === modalFood)
 
-    const [ModalState, setModalState] = useState(false)
-    const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
 
-    const handleModalClick = () => {
-        setModalState(!ModalState)
-        // console.log(ModalState)
-    }
-
-    async function carregaDados() {
-        try {
-        const response = await fetch(`https://api-ebac.vercel.app/api/efood/restaurantes/${params.restaurantId}`)
-        if(!response.ok){
-            throw new Error("Erro na requisição")
-        }
-
-        const data = await response.json();
-        console.log(data)
-        setRestaurant(data)
-        //   console.log(MenuState)
-
-        }
-        catch (error){
-            console.log("Erro:", error)
-        }
+    
+    const handleModalClick = (id: number) => {
+        setModalState(!modalState)
+        setModalFood(id)
     }
 
     useEffect(() => {
-            carregaDados()
-            },
-    [])
+        async function carregaDados() {
+            try {
+                const response = await fetch(
+                    `https://api-ebac.vercel.app/api/efood/restaurantes/${restaurantId}`
+                )
+            
+            
+                if(!response.ok){
+                    throw new Error("Erro na requisição")
+                }
+
+                const data = await response.json();
+                setRestaurant(data)
+
+            }   catch (error){
+                    console.log("Erro:", error)
+                }
+        }
+
+        carregaDados()
+    }, [restaurantId])
+
+
+    const returnProduct = () => (
+        <ProfileProductsList>
+            {restaurant?.cardapio
+                .slice(0, 6)
+                .map(menu => (
+                <ProfileProducts
+                key={menu.id}
+                ButtonClickEvent={() => handleModalClick(menu.id)}
+                Title={menu.nome}
+                Text={menu.descricao}
+                Image={menu.foto}
+                Alt={menu.nome}
+                />))
+        
+            }
+        </ProfileProductsList>
+        )
+
 
     return(
     <>
-        
         <Header Page="Profile"/>
         <ImageContainer>    
         <img src={FoodPresentation} />
@@ -72,22 +93,16 @@ export const Profile = () => {
                 <p>La Dolce Vita Trattoria</p>
             </ContainerText>
         </ImageContainer>
-        <ContainerProducts>
-            <ProfileProductsList>
-                {restaurant?.cardapio
-                    .slice(0, 6)
-                    .map(menu => (
-                    <ProfileProducts
-                    key={menu.id}
-                    ButtonClickEvent={handleModalClick}
-                    Title={menu.nome}
-                    Text={menu.descricao}
-                    Image={menu.foto}
-                    Alt={menu.nome}
-                    />))
-            
-                }
-            </ProfileProductsList>
+        <ContainerProducts activeModal={modalState}>
+        {getFoodModel && modalState &&
+            <ModalContainer activeModal={modalState}>
+                <img src={getFoodModel?.foto} alt={getFoodModel?.nome}/>
+                <ModalBody>
+                    <ModalTitle>{getFoodModel?.nome}</ModalTitle>
+                    <ModalText>{getFoodModel?.descricao}</ModalText>
+                </ModalBody>
+            </ModalContainer>}
+        {returnProduct()}
         </ContainerProducts>
         <Bottom />
     </>

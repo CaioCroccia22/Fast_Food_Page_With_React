@@ -25,7 +25,7 @@ export const ProfileProducts = ({ButtonClickEvent, Text, Image, Alt, Title}: Pro
                 </p>
             </ContainerText>
             <ContainerButton>
-                <BuyButton onClick={ButtonClickEvent}>Adicionar ao Carrinho</BuyButton>
+                <BuyButton onClick={ButtonClickEvent}>Mais detalhes</BuyButton>
             </ContainerButton>
         </Container>
 )}
