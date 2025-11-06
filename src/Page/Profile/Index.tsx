@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
+import { AnimatePresence } from "framer-motion"
+
 
 import Bottom from "../../Components/Bottom"
 import Header from "../../Components/Header"
 import { ProfileProducts } from "../../Elements/Profile_Products/Index"
 import FoodPresentation from '../../assets/img/macarrao.png'
+import CloseIcon from "../../assets/img/closeIcon.png"
 
 import type { Restaurant } from "../../Models/Restaurant"
 import { 
@@ -17,7 +20,9 @@ import {
   ModalTitle, 
   ModalText,
   ModalDescription,
-  ModalButton
+  ModalButton,
+  CloseIconDiv,
+  Overlay
 } from "./style"
 
 
@@ -37,9 +42,13 @@ export const Profile = () => {
 
 
     
-    const handleModalClick = (id: number) => {
+    const handleOpenModal = (id: number) => {
         setModalState(!modalState)
         setModalFood(id)
+    }
+
+    const handleCloseModal = () => {
+        setModalState(!modalState)
     }
 
     useEffect(() => {
@@ -73,7 +82,7 @@ export const Profile = () => {
                 .map(menu => (
                 <ProfileProducts
                 key={menu.id}
-                ButtonClickEvent={() => handleModalClick(menu.id)}
+                ButtonClickEvent={() => handleOpenModal(menu.id)}
                 Title={menu.nome}
                 Text={menu.descricao}
                 Image={menu.foto}
@@ -84,28 +93,48 @@ export const Profile = () => {
         </ProfileProductsList>
         )
 
+    const OverlayEffect = () => (
+            <Overlay 
+                 initial={{ opacity: 0 }}   
+                animate={{ opacity: 1 }}     
+                exit={{ opacity: 0 }} 
+                $activeModal={modalState}
+                transition={{ duration: 0.3 }}
+                onClick={handleCloseModal}
+            />)
 
-    return(
-    <>
+    return (
+    <>  
         <Header Page="Profile"/>
         <ImageContainer>    
         <img src={FoodPresentation} />
-            <ContainerText>
+            <ContainerText $activeModal={modalState}>
                 <p>Italiana</p>
                 <p>La Dolce Vita Trattoria</p>
             </ContainerText>
         </ImageContainer>
-        <ContainerProducts activeModal={modalState}>
-        {getFoodModal && modalState &&
-            <ModalContainer activeModal={modalState}>
-                <img src={getFoodModal?.foto} alt={getFoodModal?.nome}/>
-                <ModalBody>
-                    <ModalTitle>{getFoodModal?.nome}</ModalTitle>
-                    <ModalText>{getFoodModal?.descricao}</ModalText>
-                    <ModalDescription>{getFoodModal?.porcao}</ModalDescription>
-                    <ModalButton>Adicionar ao carrinho R$ - {getFoodModal?.preco}</ModalButton>
-                </ModalBody>
-            </ModalContainer>}
+        <ContainerProducts $activeModal={modalState}>
+        <AnimatePresence>
+            {getFoodModal && modalState && (
+                <>
+                    {OverlayEffect()}
+                    <ModalContainer $activeModal={modalState}>
+                        <CloseIconDiv>
+                            <button onClick={handleCloseModal}>
+                                <img src={CloseIcon} alt="Icone de fechar" />
+                            </button>
+                        </CloseIconDiv>
+                        <img className="foodImage" src={getFoodModal?.foto} alt={getFoodModal?.nome}/>
+                        <ModalBody>
+                            <ModalTitle>{getFoodModal?.nome}</ModalTitle>
+                            <ModalText>{getFoodModal?.descricao}</ModalText>
+                            <ModalDescription>{getFoodModal?.porcao}</ModalDescription>
+                            <ModalButton>Adicionar ao carrinho R$ - {getFoodModal?.preco}</ModalButton>
+                        </ModalBody>
+                    </ModalContainer>
+                </>
+                )}
+        </AnimatePresence>
         {returnProduct()}
         </ContainerProducts>
         <Bottom />

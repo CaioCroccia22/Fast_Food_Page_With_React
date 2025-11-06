@@ -1,8 +1,32 @@
+import { motion } from "motion/react"
+
 import styled from "styled-components";
 
 type Props = {
-  activeModal: boolean
+  $activeModal: boolean
 }
+
+export const Overlay = styled(motion.div)<Props>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.56;
+    z-index: 0;
+  }
+`
 
 
 export const ImageContainer = styled.div`
@@ -32,13 +56,13 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const ContainerText = styled.div`
+export const ContainerText = styled.div<Props>`
   position: absolute;
   top: 0;
   left: 0;
   width: 1200px;
   height: 200px;
-  z-index: 1;
+  z-index: ${(props) => props.$activeModal == true ? `` : `1`};
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
@@ -63,7 +87,7 @@ export const ContainerText = styled.div`
 export const ContainerProducts = styled.div<Props>`
   width: 1024px;
   margin: 0 auto;
-  position: ${(props) => props.activeModal == true ? `relative` : ``}
+  position: ${(props) => props.$activeModal == true ? `relative` : ``}
 
 `
 
@@ -73,12 +97,14 @@ export const ProfileProductsList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 352px);
   `
-  export const CloseIcon = styled.div`
+  export const CloseIconDiv = styled.div`
   
     top: 0;
     right: 0;
     margin: 8px;
     position: absolute;
+    width: 16px;
+    height: 16px;
   
     button {
       cursor: pointer;
@@ -97,7 +123,8 @@ export const ProfileProductsList = styled.div`
   
 
 export const ModalContainer = styled.div<Props>`
-    display: ${(props) => props.activeModal == true ? `flex` : `none`};
+    display: ${(props) => props.$activeModal == true ? `flex` : `none`};
+    z-index: ${(props) => props.$activeModal == true ? `99` : `0`};
     align-items: center;
     width: 1024px;
     height: 344px;
@@ -106,7 +133,7 @@ export const ModalContainer = styled.div<Props>`
     background-color: #E66767;
     
 
-    img {
+    .foodImage {
       width: 280px;
       height: 280px;
       object-fit: cover;
@@ -158,8 +185,10 @@ export const ModalButton = styled.button`
   background-color: #FFEBD9;
   color: #E66767;
   border: none;
+  justify-content: center
   align-items: center;
-  // Profileily: 'Roboto Variable';
   font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
+  display: flex;
 `
