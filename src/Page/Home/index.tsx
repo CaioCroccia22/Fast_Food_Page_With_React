@@ -1,11 +1,11 @@
 import Bottom from "../../Components/Bottom"
 import Header from "../../Components/Header"
-import { ProductList } from "../../Components/ProductList"
+import { RestaurantList } from "../../Components/RestaurantList"
 
 export const Home = () => (
     <>
         <Header Page="Home"/>
-        <ProductList></ProductList>
+        <RestaurantList></RestaurantList>
         <Bottom></Bottom>
     </>
 )

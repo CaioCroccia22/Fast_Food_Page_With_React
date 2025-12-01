@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
 import { HeaderContainer, Title, TextContainer, BuyText } from './styles'
+import { useCart } from '../../store/Hooks/useCart'
 
 export type Props = {
     Page: 'Home' | 'Profile'
 }
 
-export const Header = ({Page}: Props) => (
-       <>
+export const Header = ({Page}: Props) => {
+    const { toggleCartMenu } = useCart()
+
+    return (<>
             {Page === 'Home' ? 
             (<HeaderContainer Page={Page}>
                 <img src={logo} />
@@ -17,12 +20,14 @@ export const Header = ({Page}: Props) => (
                 <TextContainer>
                     <Link to="/"><BuyText>Restaurantes</BuyText></Link>
                     <img src={logo} />
-                    <BuyText>0 produtos no carrinho</BuyText>
+                    <button onClick={toggleCartMenu}>
+                        <BuyText>0 produtos no carrinho</BuyText>
+                    </button>
                 </TextContainer>
             </HeaderContainer>)
             }
-        </>
-    
-)
+        </>)
+
+}
 
 export default Header

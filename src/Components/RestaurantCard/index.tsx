@@ -11,7 +11,7 @@ export type Props = {
 }
 
 
-export const Product = ({Tags, Restaurant}: Props) => {
+export const RestaurantCard = ({Tags, Restaurant}: Props) => {
     
     
     return (
@@ -43,4 +43,4 @@ export const Product = ({Tags, Restaurant}: Props) => {
     </ProductContainer>
 )}
 
-export default Product
+export default RestaurantCard
