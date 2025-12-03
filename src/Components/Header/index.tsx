@@ -20,9 +20,7 @@ export const Header = ({Page}: Props) => {
                 <TextContainer>
                     <Link to="/"><BuyText>Restaurantes</BuyText></Link>
                     <img src={logo} />
-                    <button onClick={toggleCartMenu}>
-                        <BuyText>0 produtos no carrinho</BuyText>
-                    </button>
+                    <BuyText onClick={() => toggleCartMenu()}>0 produtos no carrinho</BuyText>
                 </TextContainer>
             </HeaderContainer>)
             }

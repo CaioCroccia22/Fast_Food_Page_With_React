@@ -15,12 +15,12 @@ export const CartSlice = createSlice({
     name: 'Cart',
     initialState: initialState,
     reducers: {
-        add(state, action: PayloadAction<boolean>){
+        toggle(state, action: PayloadAction<boolean>){
             state.isOpen = !action.payload
                 
         }
     }
 })
 
-export const {add} = CartSlice.actions
+export const {toggle} = CartSlice.actions
 export default CartSlice.reducer

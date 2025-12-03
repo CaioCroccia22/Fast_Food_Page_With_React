@@ -3,17 +3,18 @@ import CloseIcon from "../../assets/img/closeIcon.png"
 import type { Menu } from "../../Models/Menu"
 
 type Props = {
-    foodId: number
     food: Menu
     modalState: boolean
+    buttoClickEvent: () => void
+
 }
 
-export const FoodCard = ({food, modalState}: Props) => {
+export const FoodCard = ({food, modalState, buttoClickEvent}: Props) => {
     return (
         <>
-            <ModalContainer $activeModal={modalState}>
+            <ModalContainer activeModal={modalState}>
                         <CloseIconDiv>
-                            <button onClick={() => !modalState}>
+                            <button onClick={buttoClickEvent}>
                                 <img src={CloseIcon} alt="Icone de fechar" />
                             </button>
                         </CloseIconDiv>

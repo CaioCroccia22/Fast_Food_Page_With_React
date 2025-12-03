@@ -6,7 +6,8 @@ export const CartContainer = styled.aside`
     height: 100vh;
     right: 0;
     top: 0;
-    position: absolute;
+    position: fixed;
+    z-index: 99;
 `
 
 export const CartOptions = styled.div`
@@ -23,10 +24,47 @@ export const CartOption = styled.div`
     width: 344px;
     height: 100px;
     margin-bottom: 16px;
+    padding: 8px 8px 12px 8px;
     
 
-    img:nth-child(1){
+    > img{
         width: 80px;
         height: 80px;
+    }
+
+`
+
+export const CartOptionBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 8px;
+
+
+    h5{
+        font-size: 18px;
+        font-weight: bold;
+        color: #E66767;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-size: 14px;
+        // font-weight: 400px;
+        color: #E66767;
+        margin-bottom: 9px;
+    }
+
+`
+
+export const IconContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    img {
+        width: 16px;
+        height: 16px;
+    
     }
 `

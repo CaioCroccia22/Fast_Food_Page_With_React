@@ -1,15 +1,18 @@
+import { toggle } from "../reducers/Cart";
 import type { RootState } from "../store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export function useCart(){
     const Cart = useSelector((state: RootState) => state.cart.isOpen)
+    const dispatch = useDispatch()
 
 
     function toggleCartMenu(){
-        return !Cart
+        dispatch(toggle(Cart))
+        console.log(Cart)
     }
 
-    return {toggleCartMenu}
+    return {Cart, toggleCartMenu}
 }
 
 

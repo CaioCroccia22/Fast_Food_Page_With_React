@@ -5,32 +5,37 @@ import { AnimatePresence } from "framer-motion"
 
 import Bottom from "../../Components/Bottom"
 import Header from "../../Components/Header"
-// import { ProfileProducts } from "../../Components/Profile_Products/Index"
-import FoodPresentation from '../../assets/img/macarrao.png'
 
 
 import { 
-  ImageContainer, 
   ProfileProductsList, 
-  ContainerText, 
   ContainerProducts,
-  Overlay
-//   Overlay
+  ContainerMenu,
+  ContainerMenuImage,
+  TitleMenu,
+  TextMenu,
+  ContainerMenuButton,
+  BuyButton
+
 } from "./style"
-// import { parseToBrl } from "../../Utils/parseToBrl"
+
 import { useGetMenuQuery } from "../../API/Api"
-import { ProfileProducts } from "../../Components/Profile_Products/Index"
 import FoodCard from "../../Components/FoodCard/Index"
-import CartMenu from "../../Components/CartMenu/Index"
+import CartMenu from "../../Components/CartMenu"
+import { useCart } from "../../store/Hooks/useCart"
+import Hero from "../../Components/Hero"
+import OverlayEffect from "../../Components/OverlayEffect"
+import type { Menu } from "../../Models/Menu"
 
 
 
 export const Profile = () => {
     
     const {restaurantId}                    = useParams();
-    const { data: restaurant } = useGetMenuQuery(restaurantId as string)
+    const { data: restaurant }              = useGetMenuQuery(restaurantId as string)
     const [modalState, setModalState]       = useState(false)
-    const [modalFood, setModalFood]         = useState<number>(0)
+    // const [modalFood, setModalFood]         = useState({} as Menu)
+    const {Cart, toggleCartMenu}            = useCart()
 
 
     if(!restaurant){
@@ -41,55 +46,47 @@ export const Profile = () => {
     
 
 
-    const handleOpenModal = (id: number) => {
+    const handleOpenModal = (food: Menu) => {
+        console.log(modalState)
         setModalState(!modalState)
-        setModalFood(id)
+        if(!modalState){
+            <AnimatePresence>
+                    <FoodCard 
+                        buttoClickEvent={() => (!modalState)} 
+                        food={food} 
+                        modalState={modalState}/>
+            </AnimatePresence>
+        }
     }
-
-    const handleCloseModal = () => {
-        setModalState(!modalState)
-    }
-
-    const OverlayEffect = () => (
-            <Overlay 
-                 initial={{ opacity: 0 }}   
-                animate={{ opacity: 1 }}     
-                exit={{ opacity: 0 }} 
-                $activeModal={modalState}
-                transition={{ duration: 0.3 }}
-                onClick={handleCloseModal}
-            />)
 
     return (
-    <>  
-    {/* Aqui vai ter que consultar Cart se for true renderiza o component cardMenu*/}
-        {modalState ? OverlayEffect() : ''}
+    <> 
+        {modalState && <OverlayEffect />  }
+        {Cart && (<><div onClick={() => toggleCartMenu()}><OverlayEffect/></div><CartMenu /></>)}
         <Header Page="Profile"/>
-        <ImageContainer>    
-        <img src={FoodPresentation} />
-            <ContainerText $activeModal={modalState}>
-                <p>Italiana</p>
-                <p>La Dolce Vita Trattoria</p>
-            </ContainerText>
-        </ImageContainer>
-        <CartMenu />
+        <Hero />
         <ContainerProducts $activeModal={modalState}>
+        <ProfileProductsList>
         {cardapioArray.map(c => 
             <>
-                <AnimatePresence>
-                {modalState ? <FoodCard foodId={c.id} food={c} modalState={modalState}></FoodCard> : ''}
-                    </AnimatePresence>
-                    <ProfileProductsList>
-                                <ProfileProducts
-                                    key={c.id}
-                                    ButtonClickEvent={() => handleOpenModal(c.id)}
-                                    Title={c.nome}
-                                    Text={c.descricao}
-                                    Image={c.foto}
-                                    Alt={c.nome}
-                                />
-                    </ProfileProductsList>
+                <ContainerMenu>
+                    <ContainerMenuImage>
+                        <img src={c.foto} alt={c.nome}/>
+                    </ContainerMenuImage>
+                    <TitleMenu>
+                        <h3>{c.nome}</h3>
+                    </TitleMenu>
+                    <TextMenu>
+                        <p>
+                            {c.descricao.length > 153 ? (`${c.descricao.slice(0, 150)}...`): (c.descricao)}
+                        </p>
+                    </TextMenu>
+                    <ContainerMenuButton>
+                        <BuyButton onClick={() => handleOpenModal(c)}>Mais detalhes</BuyButton>
+                    </ContainerMenuButton>
+                </ContainerMenu>
             </>)}
+        </ProfileProductsList>
         </ContainerProducts>
         <Bottom /> 
     </>

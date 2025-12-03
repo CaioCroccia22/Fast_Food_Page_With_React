@@ -1,6 +1,6 @@
 import trash from '../../assets/img/lixeira.png'
 import exemplo from '../../assets/img/macarrao.png'
-import { CartContainer, CartOptions, CartOption } from './styles'
+import { CartContainer, CartOptions, CartOption, CartOptionBody, IconContainer } from './styles'
 
 export const CartMenu = () => {
     return (
@@ -9,15 +9,23 @@ export const CartMenu = () => {
                 <CartOptions>
                     <CartOption>
                         <img src={exemplo}/>
-                        <h5>Nome</h5>
-                        <h6>R$ 60</h6>
-                        <img src={trash} alt='Lixeira'/>
+                        <CartOptionBody>
+                            <h5>Nome</h5>
+                            <p>R$ 60,90</p>
+                            <IconContainer>
+                                <img src={trash} alt='Lixeira'/>
+                            </IconContainer>
+                        </CartOptionBody>
                     </CartOption>
                     <CartOption>
                         <img src={exemplo}/>
-                        <h5>Nome</h5>
-                        <h6>R$ 60</h6>
-                        <img src={trash} alt='Lixeira'/>
+                        <CartOptionBody>
+                            <h5>Nome</h5>
+                            <p>R$ 60,90</p>
+                            <IconContainer>
+                                <img src={trash} alt='Lixeira'/>
+                            </IconContainer>
+                        </CartOptionBody>
                     </CartOption>
                 </CartOptions>
             </CartContainer>

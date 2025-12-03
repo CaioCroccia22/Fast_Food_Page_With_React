@@ -39,5 +39,4 @@ export const TextContainer = styled.div`
     justify-content: space-between;
     width: 1149px;
     align-items: center;
-    // background-color: green;
 `

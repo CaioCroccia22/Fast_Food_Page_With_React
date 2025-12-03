@@ -6,84 +6,6 @@ type Props = {
   $activeModal: boolean
 }
 
-export const Overlay = styled(motion.div)<Props>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  cursor: pointer;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0.56;
-    z-index: 0;
-  }
-`
-
-
-export const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 280px;
-  margin-bottom: 40px;
-
-  img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-  }
-
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    opacity: 0.56;
-    z-index: 0;
-  }
-`;
-
-export const ContainerText = styled.div<Props>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1200px;
-  height: 200px;
-  z-index: ${(props) => props.$activeModal == true ? `` : `1`};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-  align-items: start;
-  margin-left: 250px;
-  margin-top: 20px;
-  margin-bottom: 20px;     
-  color: #fff;
-
-  p:nth-child(1) {
-    font-weight: 100;
-    font-size: 32px;
-  }
-
-  p:nth-child(2) {
-    font-weight: 900;
-    font-size: 32px;
-  }
-`;
-
-
 export const ContainerProducts = styled.div<Props>`
   width: 1024px;
   margin: 0 auto;
@@ -97,3 +19,70 @@ export const ProfileProductsList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 352px);
   `
+
+  export const ContainerMenu = styled.div`
+    background-color: #E66767;
+    width: 320px;
+    height: 338px;
+    display: flex;
+    flex-direction: column;
+    
+    `
+    
+export const ContainerMenuImage = styled.div`
+        width: 304px;
+        height: 167px;
+        margin: 8px;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 304px;
+            height: 167px;
+        }
+    `
+
+export const TitleMenu = styled.div`
+    height: 19px;
+    margin-left: 8px;
+
+    h3 {
+        color:  #FFEBD9;
+        font-size: 16px;
+        left: 0;
+    }
+`
+
+export const TextMenu = styled.div`
+    width: 304px; 
+    height: 88px;
+    margin: 8px;
+
+    p{
+        color:  #FFEBD9;
+        font-weight: 400px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+`
+
+export const ContainerMenuButton = styled.div`
+    width: 304px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+`
+
+
+export const BuyButton = styled.button`
+    background-color: #FFEBD9;
+    font-size: 14px;
+    color: #E66767;
+    border: none;
+    cursor: pointer;
+    width: 100%
+    
+`
+
