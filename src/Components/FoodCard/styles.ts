@@ -30,8 +30,8 @@ type Props = {
   
 
 export const ModalContainer = styled.div<Props>`
-    display: ${(props) => props.activeModal == true ? `flex` : `none`};
-    z-index: ${(props) => props.activeModal == true ? `99` : `0`};
+     display: ${(props) => props.activeModal == true ? `flex` : `none`};
+    z-index: 99;
     align-items: center;
     width: 1024px;
     height: 344px;

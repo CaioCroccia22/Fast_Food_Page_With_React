@@ -34,9 +34,9 @@ export const Profile = () => {
     const {restaurantId}                    = useParams();
     const { data: restaurant }              = useGetMenuQuery(restaurantId as string)
     const [modalState, setModalState]       = useState(false)
-    // const [modalFood, setModalFood]         = useState({} as Menu)
+    const [modalFood, setModalFood]         = useState({} as Menu)
     const {Cart, toggleCartMenu}            = useCart()
-
+    console.log(modalState)
 
     if(!restaurant){
         return <div>Restaurante não encontrado</div>
@@ -47,25 +47,26 @@ export const Profile = () => {
 
 
     const handleOpenModal = (food: Menu) => {
-        console.log(modalState)
         setModalState(!modalState)
-        if(!modalState){
-            <AnimatePresence>
-                    <FoodCard 
-                        buttoClickEvent={() => (!modalState)} 
-                        food={food} 
-                        modalState={modalState}/>
-            </AnimatePresence>
+        setModalFood(food)
         }
-    }
 
     return (
     <> 
-        {modalState && <OverlayEffect />  }
+        {/* Carrinho */}
         {Cart && (<><div onClick={() => toggleCartMenu()}><OverlayEffect/></div><CartMenu /></>)}
         <Header Page="Profile"/>
         <Hero />
         <ContainerProducts $activeModal={modalState}>
+        {/* Modal */}
+        {modalState && <><div onClick={() => setModalState(!modalState)}><OverlayEffect /></div>
+                    <AnimatePresence>
+                            <FoodCard 
+                                buttoClickEvent={() => setModalState(!modalState)} 
+                                food={modalFood} 
+                                modalState={modalState}/>
+                    </AnimatePresence>
+                </>}
         <ProfileProductsList>
         {cardapioArray.map(c => 
             <>
