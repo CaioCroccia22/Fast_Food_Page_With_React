@@ -16,7 +16,7 @@ export function useCart(){
 
     function sumCartFood(){
         const sum = CartList.map((food) => food.preco)
-        .reduce((acc, currentValue) => acc + currentValue)
+        .reduce((acc, currentValue) => acc + currentValue, 0)
         return sum
     }
 
