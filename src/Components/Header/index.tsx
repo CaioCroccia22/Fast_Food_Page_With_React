@@ -8,7 +8,7 @@ export type Props = {
 }
 
 export const Header = ({Page}: Props) => {
-    const { toggleCartMenu } = useCart()
+    const { toggleCartMenu, CartList } = useCart()
 
     return (<>
             {Page === 'Home' ? 
@@ -20,7 +20,7 @@ export const Header = ({Page}: Props) => {
                 <TextContainer>
                     <Link to="/"><BuyText>Restaurantes</BuyText></Link>
                     <img src={logo} />
-                    <BuyText onClick={() => toggleCartMenu()}>0 produtos no carrinho</BuyText>
+                    <BuyText onClick={() => toggleCartMenu()}>{CartList.length} produtos no carrinho</BuyText>
                 </TextContainer>
             </HeaderContainer>)
             }
