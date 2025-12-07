@@ -20,7 +20,6 @@ export const SocialContainer = styled.div`
 `
 
 export const Text = styled.p`
-    font-family: Roboto;
     font-weight: 400px;
     line-height: 100%;
     color: #E66767;
