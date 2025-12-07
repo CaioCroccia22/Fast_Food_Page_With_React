@@ -1,28 +1,37 @@
 import trash from '../../assets/img/lixeira.png'
-import exemplo from '../../assets/img/macarrao.png'
 import { useCart } from '../../store/Hooks/useCart'
 import { parseToBrl } from '../../Utils/parseToBrl'
-import { CartContainer, CartOptions, CartOption, CartOptionBody, IconContainer } from './styles'
+import { CartContainer, CartOptions, CartOption, CartOptionBody, ContainerIcon, ContainerPaymentText, PaymentButton } from './styles'
 
 export const CartMenu = () => {
-    const {CartList, removeFoodCart} = useCart()
+    const {CartList, removeFoodCart, sumCartFood} = useCart()
+
+    
+
     return (
         <>
-            <CartContainer>
+            <CartContainer className={CartList.length > 5 ? ('overflow') : ('')}>
                 <CartOptions>
                     {CartList.map(cl => 
-                    <CartOption>
+                    <CartOption key={cl.id}>
                         <img src={cl.foto}/>
                         <CartOptionBody>
                             <h5>{cl.nome}</h5>
                             <p>{parseToBrl(cl.preco)}</p>
-                            <IconContainer onClick={() => removeFoodCart(cl.id)}>
+                            <ContainerIcon onClick={() => removeFoodCart(cl.id)}>
                                 <img src={trash} alt='Lixeira'/>
-                            </IconContainer>
+                            </ContainerIcon>
                         </CartOptionBody>
                     </CartOption>
 
                     )}
+                <ContainerPaymentText>
+                    <p>Valor total</p>
+                    <p>R$ {parseToBrl(sumCartFood())}</p>
+                </ContainerPaymentText>
+                <PaymentButton>
+                    Continuar com a entrega
+                </PaymentButton>
                 </CartOptions>
             </CartContainer>
         </>

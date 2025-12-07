@@ -14,15 +14,22 @@ export function useCart(){
         console.log(Cart)
     }
 
+    function sumCartFood(){
+        const sum = CartList.map((food) => food.preco)
+        .reduce((acc, currentValue) => acc + currentValue)
+        return sum
+    }
+
     function addFoodCart(food: Menu){
         dispatch(add(food))
     }
+    
 
     function removeFoodCart(id: number){
         dispatch(remove(id))
     }
 
-    return {CartList, Cart, toggleCartMenu, removeFoodCart, addFoodCart}
+    return {CartList, Cart, toggleCartMenu, removeFoodCart, addFoodCart, sumCartFood}
 }
 
 

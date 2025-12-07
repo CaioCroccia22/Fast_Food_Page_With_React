@@ -8,6 +8,10 @@ export const CartContainer = styled.aside`
     top: 0;
     position: fixed;
     z-index: 99;
+
+    &.overflow {
+        overflow-y: scroll;
+    }
 `
 
 export const CartOptions = styled.div`
@@ -57,14 +61,42 @@ export const CartOptionBody = styled.div`
 
 `
 
-export const IconContainer = styled.div`
+export const ContainerIcon = styled.div`
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    cursor: pointer;
 
     img {
         width: 16px;
         height: 16px;
     
     }
+`
+
+export const ContainerPaymentText = styled.div`
+    display: flex;
+    width: 344px;
+    height: 16px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    p {
+        color: #FFEBD9;
+        font-size: 14px;
+    }
+
+
+
+`
+
+export const PaymentButton = styled.button`
+        background-color: #FFEBD9;
+        border: none;
+        width: 344px;
+        height: 24px;
+        color: #E66767;
+        font-size: 14px;
+
 `
