@@ -11,7 +11,6 @@ export function useCart(){
 
     function toggleCartMenu(){
         dispatch(toggle(Cart))
-        console.log(Cart)
     }
 
     function sumCartFood(){

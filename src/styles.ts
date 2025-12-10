@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import '@fontsource-variable/roboto/index.css';
 
 
@@ -25,3 +25,15 @@ export const Globalstyle = createGlobalStyle`
             height: 100vh;
         }
 `;
+
+
+export const CartButton = styled.button`
+        background-color: #FFEBD9;
+        border: none;
+        width: 344px;
+        height: 24px;
+        color: #E66767;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 8px;
+`

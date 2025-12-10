@@ -36,8 +36,7 @@ export const Profile = () => {
     const [modalState, setModalState]       = useState(false)
     const [modalFood, setModalFood]         = useState({} as Menu)
     const {Cart, toggleCartMenu}            = useCart()
-    console.log(modalState)
-
+    
     if(!restaurant){
         return <div>Restaurante não encontrado</div>
     }

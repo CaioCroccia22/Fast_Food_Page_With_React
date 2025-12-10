@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CartContainer = styled.aside`
+export const ContainerAside = styled.aside`
     background-color: #E66767;
     width: 360px;
     height: 100vh;
@@ -13,6 +13,7 @@ export const CartContainer = styled.aside`
         overflow-y: scroll;
     }
 `
+
 
 export const CartOptions = styled.div`
     display: flex;
@@ -88,15 +89,5 @@ export const ContainerPaymentText = styled.div`
     }
 
 
-
-`
-
-export const PaymentButton = styled.button`
-        background-color: #FFEBD9;
-        border: none;
-        width: 344px;
-        height: 24px;
-        color: #E66767;
-        font-size: 14px;
 
 `
