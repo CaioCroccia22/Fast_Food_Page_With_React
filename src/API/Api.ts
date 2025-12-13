@@ -13,7 +13,7 @@ export const restaurantApi = createApi({
         getMenu: build.query<Restaurant, string>({
             query: (id) => `/restaurantes/${id}`
         }),
-        postPayment: build.mutation<string, Order>({
+        postPayment: build.mutation<{orderId: string}, Order>({
             query: (order) => (
                 {url: '/checkout', 
                 method: 'POST',
