@@ -8,7 +8,7 @@ import { useState } from "react";
 export const usePaymentForm = () => {
     const {CartList} = useCart()
     const CartArr: number[][] = CartList.map(item => [item.id, item.preco]);
-    const [request, {isSuccess: isSucessRequest, isError: isError}] = usePostPaymentMutation()
+    const [request, {isSuccess: isSucessRequest, isError: isError, isLoading: isLoading}] = usePostPaymentMutation()
     const [getOrderId, setOrderId] = useState('')
 
 
@@ -49,6 +49,6 @@ export const usePaymentForm = () => {
                 })
         })
 
-        return {formik, isSucessRequest, isError ,getOrderId}
+        return {formik, isSucessRequest, isError, isLoading ,getOrderId}
     
 }
