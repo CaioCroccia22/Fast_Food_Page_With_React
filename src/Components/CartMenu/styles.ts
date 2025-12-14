@@ -35,6 +35,7 @@ export const CartOption = styled.div`
     > img{
         width: 80px;
         height: 80px;
+        object-fit: cover;
     }
 
 `
@@ -71,7 +72,7 @@ export const ContainerIcon = styled.div`
     img {
         width: 16px;
         height: 16px;
-    
+        
     }
 `
 

@@ -26,6 +26,7 @@ import { useCart } from "../../store/Hooks/useCart"
 import Hero from "../../Components/Hero"
 import OverlayEffect from "../../Components/OverlayEffect"
 import type { Menu } from "../../Models/Menu"
+import { Loader } from "../../Components/Loader"
 
 
 
@@ -38,7 +39,7 @@ export const Profile = () => {
     const {Cart, toggleCartMenu}            = useCart()
     
     if(!restaurant){
-        return <div>Restaurante não encontrado</div>
+        return <Loader />
     }
     
     const cardapioArray = restaurant.cardapio.slice(0,6)

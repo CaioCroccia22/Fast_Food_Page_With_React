@@ -1,5 +1,5 @@
 import type { Menu } from "../../Models/Menu";
-import { add, toggle, remove } from "../reducers/Cart";
+import { add, toggle, remove, clean } from "../reducers/Cart";
 import type { RootState } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -28,7 +28,11 @@ export function useCart(){
         dispatch(remove(id))
     }
 
-    return {CartList, Cart, toggleCartMenu, removeFoodCart, addFoodCart, sumCartFood}
+    function cleanCart(){
+        dispatch(clean())
+    }
+
+    return {CartList, Cart, toggleCartMenu, removeFoodCart, addFoodCart, sumCartFood, cleanCart}
 }
 
 
