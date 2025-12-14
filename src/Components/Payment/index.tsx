@@ -1,6 +1,6 @@
 
 
-import {useEffect, useState } from "react"
+
 import { ContainerForm } from "./styles"
 import { usePaymentForm } from "../../store/Hooks/usePaymentForm"
 import PaymentFormAdress from "../PaymentFormAdress"
@@ -16,8 +16,14 @@ type Props = {
 }
 
 export const Payment = ({ButtonClick}: Props) => {
-    const {formik, isSucessRequest, isLoading, getOrderId } = usePaymentForm()
-    const [paymentInformationState, setPaymentInformationaState] = useState(false)
+    const { formik, 
+            isSucessRequest, 
+            isLoading, 
+            getOrderId, 
+            paymentInformationState, 
+            nextStepForm,
+            validationSubmit,
+            previusStepForm } = usePaymentForm()
   
     if (isLoading){
         return <Loader />
@@ -30,10 +36,13 @@ export const Payment = ({ButtonClick}: Props) => {
                 (<ContainerForm onSubmit={formik.handleSubmit}>
                 {paymentInformationState ? (
                     <PaymentFormCard
+                    formik={formik}
                     isLoading = {isLoading}
-                    previusStep={() => (setPaymentInformationaState(false))}/>) : 
+                    submitForm={() => validationSubmit()}
+                    previusStep={() => previusStepForm()}/>) : 
                     (<PaymentFormAdress 
-                    nextStep={() => (setPaymentInformationaState(true))} 
+                    formik={formik}
+                    nextStep={() => (nextStepForm())} 
                     previusStep={() => ButtonClick()}/>)}
             </ContainerForm>)
         }

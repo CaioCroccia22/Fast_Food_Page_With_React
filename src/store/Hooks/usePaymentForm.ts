@@ -4,12 +4,17 @@ import type { Order } from "../../Models/Payment";
 import { useCart } from "./useCart";
 import { usePostPaymentMutation } from "../../API/Api";
 import { useState } from "react";
+import { paymentValidationSchema } from "../../Utils/PaymentSchema";
+import { toast } from "react-toastify";
 
 export const usePaymentForm = () => {
-    const {CartList} = useCart()
+    const {CartList, cleanCart} = useCart()
     const CartArr: number[][] = CartList.map(item => [item.id, item.preco]);
+
     const [request, {isSuccess: isSucessRequest, isError: isError, isLoading: isLoading}] = usePostPaymentMutation()
     const [getOrderId, setOrderId] = useState('')
+
+    const [paymentInformationState, setPaymentInformationaState] = useState(false)
 
 
 
@@ -22,7 +27,7 @@ export const usePaymentForm = () => {
                         description: '',
                         city: '',
                         zipCode: '',
-                        number: 0,
+                        number: '',
                         complement: '',
                     }
                 },
@@ -30,25 +35,79 @@ export const usePaymentForm = () => {
                     card: {
                         name: '',
                         number: '',
-                        code: 0,
+                        code: '',
                         expires: {
-                            month: 0,
-                            year: 0
+                            month: '',
+                            year: ''
                         }
     
                     }
                 }
             },
+            validationSchema: paymentValidationSchema,
             onSubmit: (async (values) => {
-                    try {
-                         const response = await request(values).unwrap()
+                try {
+                        toast.success('Pedido realizado aguarde um momento')
+                        const response = await request(values).unwrap()
                          setOrderId(response.orderId)
+                         cleanCart()
                     } catch(error){
-                        console.log('Erro no pagamento', error)
+                        console.log(error)
+                        toast.error(`Erro no pagamento: ${error}`, 
+                        {position: "top-center", closeOnClick: true})
                     }
                 })
         })
 
-        return {formik, isSucessRequest, isError, isLoading ,getOrderId}
+        // Validação da primeira parte do formulário
+        async function nextStepForm(){
+
+                formik.setTouched({
+                    delivery: {
+                        receiver: true,
+                        adress: {
+                            description: true,
+                            city: true,
+                            zipCode: true,
+                            number: true,
+                            complement: true
+                        }
+                    }
+                });
+
+                const errors = await formik.validateForm();
+
+                const hasReceiverError = errors.delivery?.receiver;
+                const hasAddressError = errors.delivery?.adress;
+            
+                if (hasReceiverError || hasAddressError){
+                    toast.error("Preencha todos os campos de endereço", 
+                        {position: "top-center", closeOnClick: true})
+                } else {
+                    setPaymentInformationaState(true)
+                }
+            
+            }
+        
+        async function validationSubmit(){
+            const errors = await formik.validateForm()
+
+            const hasCardErrors = errors.payment?.card
+
+            if (hasCardErrors){
+                console.log(hasCardErrors)
+                toast.error("Preencha todos os campos de pagamento", 
+                    {position: "top-center", closeOnClick: true})
+            } else {
+                    formik.submitForm()
+                }
+        }
+
+        function previusStepForm(){
+            setPaymentInformationaState(false)
+        }
+
+
+        return {formik, isSucessRequest, isError, isLoading ,getOrderId, nextStepForm, previusStepForm, validationSubmit,paymentInformationState}
     
 }

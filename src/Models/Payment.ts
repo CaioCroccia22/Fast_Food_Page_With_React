@@ -2,10 +2,10 @@ type payment = {
     card: {
         name: string
         number: string
-        code: number
+        code: string
         expires: {
-            month: number,
-            year: number
+            month: string,
+            year: string
         }
     }
 }
@@ -16,7 +16,7 @@ type delivery = {
         description: string
         city: string
         zipCode: string
-        number: number
+        number: string
         complement: string
     }
 }

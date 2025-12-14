@@ -1,23 +1,24 @@
 import InputMask from 'react-input-mask';
 
-import { useCart } from "../../store/Hooks/useCart"
-import { usePaymentForm } from "../../store/Hooks/usePaymentForm"
 import { CartButton } from "../../styles"
 import { ContainerCard } from "./styles"
+import type { FormikProps } from 'formik';
+import type { Order } from '../../Models/Payment';
 
 type Props = { 
-    isLoading: boolean
-    previusStep: () => void
+    formik:         FormikProps<Order>
+    isLoading:      boolean
+    previusStep:    () => void
+    submitForm:     () => void
 }
 
-export const PaymentFormCard = ({isLoading, previusStep}: Props) => {
-    const {formik} = usePaymentForm()
-    const {cleanCart} = useCart()
+export const PaymentFormCard = ({formik, submitForm, isLoading, previusStep}: Props) => {
+
 
     return (
           <>
             <label htmlFor="cardName">Nome do Cartão: </label>
-            <InputMask 
+            <input 
                 id="cardName" 
                 name="payment.card.name"
                 value={formik.values.payment.card.name}
@@ -32,7 +33,7 @@ export const PaymentFormCard = ({isLoading, previusStep}: Props) => {
                         name="payment.card.number"
                         value={formik.values.payment.card.number}
                         onChange={formik.handleChange}
-                        mask="9999 9999 9999 9999"
+                        mask="9999999999999999"
                     />                       
                 </div>
                 <div>
@@ -69,7 +70,7 @@ export const PaymentFormCard = ({isLoading, previusStep}: Props) => {
                     />
                 </div>
             </ContainerCard>
-            <CartButton type='submit' disabled={isLoading} onClick={() => cleanCart()}>
+            <CartButton type="submit" disabled={isLoading} onClick={() => submitForm()}>
                  Finaliza Pagamento
             </CartButton>
             <CartButton type="button" onClick={() => previusStep()}>
