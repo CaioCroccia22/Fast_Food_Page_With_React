@@ -52,7 +52,6 @@ export const usePaymentForm = () => {
                          setOrderId(response.orderId)
                          cleanCart()
                     } catch(error){
-                        console.log(error)
                         toast.error(`Erro no pagamento: ${error}`, 
                         {position: "top-center", closeOnClick: true})
                     }
@@ -96,7 +95,7 @@ export const usePaymentForm = () => {
 
             if (hasCardErrors){
                 console.log(hasCardErrors)
-                toast.error("Preencha todos os campos de pagamento", 
+                toast.error(`Preencha todos os campos de pagamento`, 
                     {position: "top-center", closeOnClick: true})
             } else {
                     formik.submitForm()

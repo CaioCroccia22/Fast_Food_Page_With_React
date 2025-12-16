@@ -70,7 +70,7 @@ export const Profile = () => {
         <ProfileProductsList>
         {cardapioArray.map(c => 
             <>
-                <ContainerMenu>
+                <ContainerMenu key={c.id}>
                     <ContainerMenuImage>
                         <img src={c.foto} alt={c.nome}/>
                     </ContainerMenuImage>

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import trash from '../../assets/img/lixeira.png'
 import { useCart } from '../../store/Hooks/useCart'
 import { parseToBrl } from '../../Utils/parseToBrl'
@@ -7,24 +6,12 @@ import Payment from '../Payment'
 import { CartButton } from '../../styles'
 
 export const CartMenu = () => {
-    const [PaymentState, SetPaymentState] = useState(false)
-    const {CartList, removeFoodCart, sumCartFood} = useCart()
+    const {CartList,  startToPay, removeFoodCart, sumCartFood, confirmCart} = useCart()
     
-    function tooglePayment(){
-        console.log(PaymentState)
-        if(!PaymentState){
-            SetPaymentState(!PaymentState)
-            console.log("Vou abrir o menu de pagamento: " + {PaymentState})
-        } else {
-            SetPaymentState(!PaymentState)
-            console.log("Vou fechar o menu de pagamento: " + {PaymentState})
-        }
-    }
-
     return (
         <>
             <ContainerAside className={CartList.length > 5 ? ('overflow') : ('')}>
-                {!PaymentState ? (<CartOptions>
+                {!startToPay ? (<CartOptions>
                     {CartList.map(cl => 
                     <CartOption key={cl.id}>
                         <img src={cl.foto}/>
@@ -35,18 +22,15 @@ export const CartMenu = () => {
                                 <img src={trash} alt='Lixeira'/>
                             </ContainerIcon>
                         </CartOptionBody>
-                    </CartOption>
-
-                    )}
+                    </CartOption>)}
                 <ContainerPaymentText>
                     <p>Valor total</p>
-                    <p>R$ {parseToBrl(sumCartFood())}</p>
+                    <p>{sumCartFood()}</p>
                 </ContainerPaymentText>
-                <CartButton onClick={() => tooglePayment()}>
+                <CartButton onClick={() => confirmCart(CartList)}>
                     Continuar com a entrega
                 </CartButton>
-                </CartOptions>) 
-                : (<Payment ButtonClick={tooglePayment}/>)}
+                </CartOptions>) : (<Payment ButtonClick={() => startToPay}/>)}
             </ContainerAside>
         </>
     )
