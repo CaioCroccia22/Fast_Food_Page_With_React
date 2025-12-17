@@ -4,7 +4,7 @@ import { RestaurantList } from "../../Components/RestaurantList"
 
 export const Home = () => (
     <>
-        <Header Page="Home"/>
+        <Header page="Home"/>
         <RestaurantList></RestaurantList>
         <Bottom></Bottom>
     </>

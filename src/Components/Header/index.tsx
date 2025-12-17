@@ -4,19 +4,19 @@ import { HeaderContainer, Title, TextContainer, BuyText } from './styles'
 import { useCart } from '../../store/Hooks/useCart'
 
 export type Props = {
-    Page: 'Home' | 'Profile'
+    page: 'Home' | 'Profile'
 }
 
-export const Header = ({Page}: Props) => {
+export const Header = ({page}: Props) => {
     const { toggleCartMenu, CartList } = useCart()
 
     return (<>
-            {Page === 'Home' ? 
-            (<HeaderContainer Page={Page}>
+            {page === 'Home' ? 
+            (<HeaderContainer page={page}>
                 <img src={logo} />
                 <Title>Viva experiências gastronômicas no conforto da sua casa</Title>
             </HeaderContainer> ) : ( 
-            <HeaderContainer Page={Page}>
+            <HeaderContainer page={page}>
                 <TextContainer>
                     <Link to="/"><BuyText>Restaurantes</BuyText></Link>
                     <img src={logo} />

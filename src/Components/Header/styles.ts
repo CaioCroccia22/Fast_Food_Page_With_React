@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div<Props>`
     background-image: url(${background});
     background-size: cover;
     max-width: 100%;
-    height: ${({ Page }) => Page === 'Home' ? '384px' : '186px'};
+    height: ${({ page }) => page === 'Home' ? '384px' : '186px'};
     // padding: 16px 8px;
     display: flex;
     flex-direction: column;

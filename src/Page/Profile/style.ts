@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 type Props = {
-  $activeModal: boolean
+  $activemodal: boolean
 }
 
 export const ContainerProducts = styled.div<Props>`
   width: 1024px;
   margin: 0 auto;
-  position: ${(props) => props.$activeModal == true ? `relative` : ``}
+  position: ${(props) => props.$activemodal == true ? `relative` : ``}
 
 `
 

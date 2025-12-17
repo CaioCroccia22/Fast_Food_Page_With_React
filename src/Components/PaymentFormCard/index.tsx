@@ -1,4 +1,4 @@
-import InputMask from 'react-input-mask';
+import { IMaskInput } from 'react-imask';
 
 import { CartButton } from "../../styles"
 import { ContainerCard } from "./styles"
@@ -28,17 +28,17 @@ export const PaymentFormCard = ({formik, submitForm, isLoading, previusStep}: Pr
             <ContainerCard>
                 <div>
                     <label htmlFor="cardNumber">Número do Cartão: </label>
-                    <InputMask 
+                    <IMaskInput 
                         id="cardNumber" 
                         name="payment.card.number"
                         value={formik.values.payment.card.number}
                         onChange={formik.handleChange}
-                        mask="9999999999999999"
+                        mask={Number}
                     />                       
                 </div>
                 <div>
                     <label htmlFor="cvv">CVV: </label>
-                    <InputMask 
+                    <IMaskInput 
                         id="cvv" 
                         name="payment.card.code"
                         value={formik.values.payment.card.code}
@@ -51,17 +51,19 @@ export const PaymentFormCard = ({formik, submitForm, isLoading, previusStep}: Pr
             <ContainerCard>
                 <div>
                     <label htmlFor="cardMonth">Mês de vencimento: </label>
-                    <InputMask 
+                    <IMaskInput 
                         id="cardMonth" 
                         name="payment.card.expires.month"
                         value={formik.values.payment.card.expires.month}
                         onChange={formik.handleChange}
                         mask="99"
+                        min={1}
+                        max={12}
                     />
                 </div>
                 <div>
                     <label htmlFor="cardYear">Ano de Vencimento: </label>
-                    <InputMask 
+                    <IMaskInput 
                         id="cardYear" 
                         name="payment.card.expires.year"
                         value={formik.values.payment.card.expires.year}

@@ -22,7 +22,7 @@ export const FoodCard = ({food, modalState, buttoClickEvent}: Props) => {
 
     return (
         <>
-            <ModalContainer activeModal={modalState}>
+            <ModalContainer $activemodal={modalState}>
                         <CloseIconDiv>
                             <button onClick={buttoClickEvent}>
                                 <img src={CloseIcon} alt="Icone de fechar" />

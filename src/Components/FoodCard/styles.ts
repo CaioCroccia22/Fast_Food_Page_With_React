@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 
 type Props = {
-  activeModal: boolean
+  $activemodal: boolean
 }
 
   export const CloseIconDiv = styled.div`
@@ -30,7 +30,7 @@ type Props = {
   
 
 export const ModalContainer = styled.div<Props>`
-     display: ${(props) => props.activeModal == true ? `flex` : `none`};
+     display: ${(props) => props.$activemodal == true ? `flex` : `none`};
     z-index: 99;
     align-items: center;
     width: 1024px;

@@ -55,9 +55,9 @@ export const Profile = () => {
     <> 
         {/* Carrinho */}
         {Cart && (<><div onClick={() => toggleCartMenu()}><OverlayEffect/></div><CartMenu /></>)}
-        <Header Page="Profile"/>
+        <Header page="Profile"/>
         <Hero />
-        <ContainerProducts $activeModal={modalState}>
+        <ContainerProducts $activemodal={modalState}>
         {/* Modal */}
         {modalState && <><div onClick={() => setModalState(!modalState)}><OverlayEffect /></div>
                     <AnimatePresence>
@@ -69,8 +69,8 @@ export const Profile = () => {
                 </>}
         <ProfileProductsList>
         {cardapioArray.map(c => 
-            <>
-                <ContainerMenu key={c.id}>
+            <div key={c.id}>
+                <ContainerMenu>
                     <ContainerMenuImage>
                         <img src={c.foto} alt={c.nome}/>
                     </ContainerMenuImage>
@@ -86,7 +86,7 @@ export const Profile = () => {
                         <BuyButton onClick={() => handleOpenModal(c)}>Mais detalhes</BuyButton>
                     </ContainerMenuButton>
                 </ContainerMenu>
-            </>)}
+            </div>)}
         </ProfileProductsList>
         </ContainerProducts>
         <Bottom /> 

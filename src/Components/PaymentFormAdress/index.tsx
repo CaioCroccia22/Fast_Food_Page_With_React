@@ -1,4 +1,4 @@
-import InputMask from 'react-input-mask';
+import { IMaskInput } from 'react-imask';
 
 import { ContainerAdress } from "./styles"
 import { CartButton } from "../../styles"
@@ -56,13 +56,13 @@ export const PaymentFormAdress = ({formik, nextStep, previusStep}: Props) => {
             <ContainerAdress>
                 <div>
                     <label htmlFor="cep">Cep: </label>
-                    <InputMask 
+                    <IMaskInput 
                         id="cep" 
                         name="delivery.adress.zipCode"
                         value={formik.values.delivery.adress.zipCode}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        mask="99999-999"
+                        mask="00000-000"
                     />
                 </div>
 
@@ -71,13 +71,13 @@ export const PaymentFormAdress = ({formik, nextStep, previusStep}: Props) => {
 
                 <div>
                     <label htmlFor="number">Numero: </label>
-                    <InputMask 
+                    <IMaskInput 
                         id="number" 
                         name="delivery.adress.number"
                         value={formik.values.delivery.adress.number}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        mask="9999"
+                        mask = {Number}
                     />
                 </div>
 
