@@ -4,7 +4,6 @@ import { add, toggle, remove, clean } from "../reducers/Cart";
 import type { RootState } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { parseToBrl } from "../../Utils/parseToBrl";
 
 export function useCart(){
     const Cart = useSelector((state: RootState) => state.cart.isOpen)
