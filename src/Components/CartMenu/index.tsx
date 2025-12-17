@@ -25,7 +25,7 @@ export const CartMenu = () => {
                     </CartOption>)}
                 <ContainerPaymentText>
                     <p>Valor total</p>
-                    <p>{sumCartFood()}</p>
+                    <p>R$ {sumCartFood().toFixed(2)}</p>
                 </ContainerPaymentText>
                 <CartButton onClick={() => confirmCart(CartList)}>
                     Continuar com a entrega
