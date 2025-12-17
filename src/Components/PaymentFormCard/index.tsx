@@ -43,7 +43,7 @@ export const PaymentFormCard = ({formik, submitForm, isLoading, previusStep}: Pr
                         name="payment.card.code"
                         value={formik.values.payment.card.code}
                         onChange={formik.handleChange}
-                        mask="999"
+                        mask="000"
                     />
                 </div>
             </ContainerCard>
@@ -56,7 +56,7 @@ export const PaymentFormCard = ({formik, submitForm, isLoading, previusStep}: Pr
                         name="payment.card.expires.month"
                         value={formik.values.payment.card.expires.month}
                         onChange={formik.handleChange}
-                        mask="99"
+                        mask="00"
                         min={1}
                         max={12}
                     />
@@ -68,7 +68,7 @@ export const PaymentFormCard = ({formik, submitForm, isLoading, previusStep}: Pr
                         name="payment.card.expires.year"
                         value={formik.values.payment.card.expires.year}
                         onChange={formik.handleChange}
-                        mask="9999"
+                        mask="0000"
                     />
                 </div>
             </ContainerCard>
