@@ -94,7 +94,6 @@ export const usePaymentForm = () => {
             const hasCardErrors = errors.payment?.card
 
             if (hasCardErrors){
-                console.log(hasCardErrors)
                 toast.error(`Preencha todos os campos de pagamento`, 
                     {position: "top-center", closeOnClick: true})
             } else {

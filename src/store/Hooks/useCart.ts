@@ -25,7 +25,12 @@ export function useCart(){
     }
 
     function addFoodCart(food: Menu){
-        dispatch(add(food))
+        const index = CartList.findIndex(e => e.id === food.id)
+        if(index == -1) {
+            dispatch(add(food))
+        } else {
+            toast.warning("Produto já esta no carrinho", {position: "top-center"})
+        }
     }
     
 
@@ -42,7 +47,6 @@ export function useCart(){
             toast.warning("Porfavor adicionar itens ao carrinho", {position: "top-center"})
         } else {
             setStartToPay(!startToPay)
-            console.log(startToPay)
         }
 
     }
